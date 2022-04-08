@@ -5,49 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Despesas</title>
+    <title>Controle Financeiro</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo.png" alt="Logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Controle</span>
+                    <span class="name">Financeiro</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="home-outline"></ion-icon>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="reader-outline"></ion-icon>
+                            <span class="text nav-text">Historic</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span class="text nav-text">Calendar</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="mode">
+                    <div class="moon-sun">
+                        <ion-icon name="moon-outline"></ion-icon>
+                        <ion-icon name="sunny-outline"></ion-icon>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
     <header id="topMenu" class="container">
         <div id="logo">Logo</div>
         <div>Profile</div>
     </header>
 
     <main id="content" class="container">
-        <div id="mainMenu" class="navigation">
-            <ul>
-                <li class="list">
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="home-outline"></ion-icon>
-                        </span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="reader-outline"></ion-icon>
-                        </span>
-                        <span class="title">Histórico</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="calendar-outline"></ion-icon>
-                        </span>
-                        <span class="title">Calendário</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-
-
         <div>Content</div>
     </main>
 
