@@ -203,12 +203,12 @@ body.dark .menu-bar .mode ion-icon.moon {
     justify-content: center;
     height: 100%;
     min-width: 60px;
-    cursor: pointer;
     border-radius: 6px;
     background: var(--primary-color-light);
 }
 
 .toggle-switch .switch {
+    cursor: pointer;
     position: relative;
     height: 22px;
     width: 44px;
@@ -253,16 +253,4 @@ body.dark .switch::before {
 .sidebar:hover~.content {
     left: 250px;
     width: calc(100% - 250px);
-}
-
-#topMenu {
-    height: 60px;
-}
-
-#content {
-    flex-grow: 1;
-}
-
-#footer {
-    height: 60px;
 }

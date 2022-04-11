@@ -1,6 +1,6 @@
 const body = document.querySelector('body'),
     sidebar = document.querySelector('.sidebar'),
-    modeSwitch = document.querySelector('.toggle-switch'),
+    modeSwitch = document.querySelector('.switch'),
     modeText = document.querySelector('.mode-text')
 
 modeSwitch.addEventListener('click', () => {
@@ -11,5 +11,4 @@ modeSwitch.addEventListener('click', () => {
     } else {
         modeText.innerText = "Dark Mode"
     }
-
 })
