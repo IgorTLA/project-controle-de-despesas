@@ -41,11 +41,6 @@ body.dark {
     --text-color: #ccc;
 }
 
-.container {
-    display: flex;
-    border: 2px solid black;
-}
-
 /*----- Sidebar -----*/
 .sidebar {
     position: fixed;
@@ -240,17 +235,45 @@ body.dark .switch::before {
     left: 88px;
     height: 100vh;
     width: calc(100% - 88px);
+    padding: 20px 30px;
     transition: var(--tran-05);
-}
-
-.content .text {
-    font-size: 30px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 8px 40px;
 }
 
 .sidebar:hover~.content {
     left: 250px;
     width: calc(100% - 250px);
+}
+
+/*----- Reusable CSS -----*/
+.content .title {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.content .insights {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.content .insights .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.content .box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 160px;
+    width: 460px;
+    border-radius: 10px;
+    /* box-shadow: 0.4em 0.4em 0.6em #00000036; */
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
 }
