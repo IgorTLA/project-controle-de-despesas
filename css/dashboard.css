@@ -3,8 +3,11 @@
 :root {
     --body-color: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
     --sidebar-color: #fff;
+    --text-color: #000;
     --text-color-light: #707070;
-    --color-hover: #417D7A;
+    --color-hover: #417d7a;
+    --toggle-color: #7c7c7c;
+    --border-color: #d8d8d8;
 
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -28,6 +31,16 @@ body {
     background: var(--body-color);
 }
 
+body.dark {
+    --body-color: linear-gradient(to top, #3b3b3b 0%, #1f1e1e 52%, #181818 100%);
+    --sidebar-color: #242526;
+    --text-color: #fff;
+    --text-color-light: #ccc;
+    --color-hover: #417d7a;
+    --toggle-color: #fff;
+    --border-color: #4d4c4c;
+}
+
 /*==== Sidebar ====*/
 .sidebar {
     position: fixed;
@@ -38,9 +51,13 @@ body {
     padding: 10px 14px;
     z-index: 100;
     background: var(--sidebar-color);
+    transition: var(--tran-05);
 }
 
-/*==== Reusable CSS ====*/
+.sidebar.close {
+    width: 73px;
+}
+
 .sidebar .logo {
     display: flex;
     align-items: center;
@@ -58,11 +75,18 @@ body {
     border-radius: 6px;
 }
 
-.sidebar .logo-text {
+.sidebar .logo-name {
     font-size: 22px;
     font-weight: 700;
-    color: var(--text-color-light);
+    color: var(--text-color);
     margin-left: 16px;
+    white-space: nowrap;
+    transition: var(--tran-05);
+}
+
+.sidebar.close .logo-name {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /*==== Main Menu ====*/
@@ -86,7 +110,7 @@ body {
     position: relative;
 }
 
-.nav-links li a:hover:before {
+.nav-links li a:hover::before {
     content: '';
     position: absolute;
     left: -7px;
@@ -109,6 +133,12 @@ body {
     font-size: 18px;
     font-weight: 400;
     color: var(--text-color-light);
+    transition: var(--tran-05);
+}
+
+.sidebar.close .link-name {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .nav-links li a:hover i,
@@ -116,5 +146,91 @@ body {
     color: var(--color-hover);
 }
 
-/*==== Dark Mode ====*/
-/* .main-menu .mode-toggle {} */
+.main-menu .botton-content {
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+/*==== Dark Mode Switch ====*/
+.main-menu .mode {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.main-menu .mode-toggle {
+    position: absolute;
+    right: 14px;
+    height: 50px;
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mode-toggle .switch {
+    position: relative;
+    display: inline-block;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+    background-color: var(--sidebar-color);
+    border-radius: 50%;
+    transition: var(--tran-03);
+}
+
+body.dark .switch::before {
+    left: 20px;
+}
+
+/*==== Content Dashboard ====*/
+.dashboard {
+    position: relative;
+    left: 250px;
+    background-color: var(--body-color);
+    height: 100vh;
+    width: calc(100% - 250px);
+    padding: 10px 14px;
+    transition: var(--tran-05);
+}
+
+.sidebar.close~.dashboard {
+    left: 73px;
+    width: calc(100% - 73px);
+}
+
+.dashboard .top {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    display: flex;
+    width: calc(100% - 250px);
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    transition: var(--tran-05);
+}
+
+.sidebar.close~.dashboard .top {
+    left: 73px;
+    width: calc(100% - 73px);
+}
+
+/*==== Sidebar Toggle ====*/
+.dashboard .sidebar-toggle {
+    font-size: 26px;
+    color: var(--text-color);
+    cursor: pointer;
+}
