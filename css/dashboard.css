@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --body-color: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    --sidebar-color: #fff;
+    --text-color-light: #707070;
+    --color-hover: #417D7A;
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    font-size: 100%;
+    list-style-type: none;
+    background: var(--body-color);
+}
+
+/*==== Sidebar ====*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    z-index: 100;
+    background: var(--sidebar-color);
+}
+
+/*==== Reusable CSS ====*/
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .logo-image {
+    min-width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .logo-image img {
+    width: 45px;
+    border-radius: 6px;
+}
+
+.sidebar .logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color-light);
+    margin-left: 16px;
+}
+
+/*==== Main Menu ====*/
+.sidebar .main-menu {
+    margin-top: 40px;
+    height: calc(100% - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-menu li {
+    list-style: none;
+}
+
+.main-menu li a {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-links li a:hover:before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    height: 45px;
+    width: 5px;
+    background-color: var(--color-hover);
+}
+
+.main-menu li a i {
+    font-size: 24px;
+    min-width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-light)
+}
+
+.main-menu .link-name {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-color-light);
+}
+
+.nav-links li a:hover i,
+.nav-links li a:hover .link-name {
+    color: var(--color-hover);
+}
+
+/*==== Dark Mode ====*/
+/* .main-menu .mode-toggle {} */
