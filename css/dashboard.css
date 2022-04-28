@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --body-color: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
-    --sidebar-color: #fff;
-    --text-color: #000;
-    --text-color-light: #707070;
-    --color-hover: #417d7a;
+    /*==== colors ====*/
+    --bg-color: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    --sidebar-color: #242424;
+    --primary-color: #417d7a;
+    --text-color: #fff;
+    --menu-text-color: #808080;
+    --hover-color: #3f3f3f;
     --toggle-color: #7c7c7c;
-    --border-color: #d8d8d8;
+    --divider-color: #d8d8d8;
 
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -28,17 +30,17 @@ body {
     height: 100vh;
     font-size: 100%;
     list-style-type: none;
-    background: var(--body-color);
+    background: var(--bg-color);
 }
 
 body.dark {
-    --body-color: linear-gradient(to top, #3b3b3b 0%, #1f1e1e 52%, #181818 100%);
+    --bg-color: linear-gradient(to top, #3b3b3b 0%, #1f1e1e 52%, #181818 100%);
     --sidebar-color: #242526;
     --text-color: #fff;
-    --text-color-light: #ccc;
-    --color-hover: #417d7a;
+    --menu-text-color: #808080;
+    --hover-color: #3f3f3f;
     --toggle-color: #fff;
-    --border-color: #4d4c4c;
+    --divider-color: #4d4c4c;
 }
 
 /*==== Sidebar ====*/
@@ -110,29 +112,29 @@ body.dark {
     position: relative;
 }
 
-.nav-links li a:hover::before {
-    content: '';
-    position: absolute;
-    left: -7px;
-    height: 45px;
-    width: 5px;
-    background-color: var(--color-hover);
+.nav-links li a:hover {
+    background-color: var(--hover-color);
+    border-radius: 3px;
 }
 
-.main-menu li a i {
+.main-menu li a .icon {
     font-size: 24px;
     min-width: 45px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-color-light)
+    color: var(--menu-text-color)
+}
+
+.nav-links li a:hover .icon {
+    color: var(--primary-color);
 }
 
 .main-menu .link-name {
     font-size: 18px;
     font-weight: 400;
-    color: var(--text-color-light);
+    color: var(--menu-text-color);
     transition: var(--tran-05);
 }
 
@@ -141,14 +143,13 @@ body.dark {
     pointer-events: none;
 }
 
-.nav-links li a:hover i,
 .nav-links li a:hover .link-name {
-    color: var(--color-hover);
+    color: var(--text-color);
 }
 
 .main-menu .botton-content {
     padding-top: 10px;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--divider-color);
 }
 
 /*==== Dark Mode Switch ====*/
@@ -199,7 +200,7 @@ body.dark .switch::before {
 .dashboard {
     position: relative;
     left: 250px;
-    background-color: var(--body-color);
+    background-color: var(--bg-color);
     height: 100vh;
     width: calc(100% - 250px);
     padding: 10px 14px;
@@ -231,6 +232,6 @@ body.dark .switch::before {
 /*==== Sidebar Toggle ====*/
 .dashboard .sidebar-toggle {
     font-size: 26px;
-    color: var(--text-color);
+    color: #000;
     cursor: pointer;
 }
