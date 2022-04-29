@@ -24,7 +24,7 @@
 
         <nav class="main-menu">
             <ul class="nav-links">
-                <li><a href="#">
+                <li><a href="#" class="active">
                         <span class="icon material-icons-sharp">dashboard</span>
                         <span class="link-name">Dashboard</span>
                     </a>
@@ -41,7 +41,7 @@
                 </li>
             </ul>
 
-            <ul class="botton-content">
+            <ul class="bottom-content">
                 <li><a href="#">
                         <span class="icon material-icons-sharp">logout</span>
                         <span class="link-name">Logout</span>
@@ -62,8 +62,22 @@
 
     <main class="dashboard">
         <div class="top">
-            <i class="uil uil-bars sidebar-toggle"></i>
+            <div class="left-content">
+                <i class="uil uil-bars sidebar-toggle"></i>
+                <span class="title">Dashboard</span>
+            </div>
+            <div class="right-content">
+                <span class="display-date">00/00/0000</span>
+                <span class="notification material-icons-sharp">notifications</span>
+                <span class="user material-icons-sharp">account_circle</span>
+            </div>
         </div>
+
+        <section class="insights">
+            <div class="sales">
+                <span class="user material-icons-sharp">account_balance_wallet</span>
+            </div>
+        </section>
     </main>
 
     <script src="js/mode.js"></script>

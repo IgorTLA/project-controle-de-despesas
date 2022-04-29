@@ -112,9 +112,18 @@ body.dark {
     position: relative;
 }
 
-.nav-links li a:hover {
+.nav-links li a.active {
     background-color: var(--hover-color);
     border-radius: 3px;
+}
+
+.nav-links li a.active::before {
+    content: '';
+    position: absolute;
+    border-radius: 3px 0 0 3px;
+    height: 50px;
+    width: 5px;
+    background-color: var(--primary-color);
 }
 
 .main-menu li a .icon {
@@ -124,10 +133,11 @@ body.dark {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--menu-text-color)
+    color: var(--menu-text-color);
+    transition: var(--tran-05);
 }
 
-.nav-links li a:hover .icon {
+.nav-links li a.active .icon {
     color: var(--primary-color);
 }
 
@@ -143,11 +153,17 @@ body.dark {
     pointer-events: none;
 }
 
-.nav-links li a:hover .link-name {
+.nav-links li a.active .link-name {
     color: var(--text-color);
 }
 
-.main-menu .botton-content {
+.nav-links li a:hover .icon,
+.nav-links li a:hover .link-name {
+    transform: translateY(-2px);
+    color: var(--primary-color);
+}
+
+.main-menu .bottom-content {
     padding-top: 10px;
     border-top: 1px solid var(--divider-color);
 }
@@ -212,6 +228,7 @@ body.dark .switch::before {
     width: calc(100% - 73px);
 }
 
+/*==== Dashboard Top ====*/
 .dashboard .top {
     position: fixed;
     top: 0;
@@ -219,9 +236,9 @@ body.dark .switch::before {
     display: flex;
     width: calc(100% - 250px);
     justify-content: space-between;
-    align-items: center;
     padding: 10px 14px;
     transition: var(--tran-05);
+    background-color: var(--text-color);
 }
 
 .sidebar.close~.dashboard .top {
@@ -229,9 +246,40 @@ body.dark .switch::before {
     width: calc(100% - 73px);
 }
 
-/*==== Sidebar Toggle ====*/
+/*==== Sidebar Toggle btn ====*/
 .dashboard .sidebar-toggle {
-    font-size: 26px;
+    font-size: 30px;
     color: #000;
     cursor: pointer;
 }
+
+/*=========================*/
+.dashboard .left-content {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard .right-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 12em;
+}
+
+.right-content .display-date {
+    font-size: 16px;
+}
+
+.right-content .user {
+    font-size: 50px;
+    color: var(--sidebar-color);
+}
+
+.dashboard .title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-left: 30px;
+    color: var(--sidebar-color);
+}
+
+/*==== Dashboard Middle ====*/
