@@ -15,6 +15,8 @@
     --tran-03: all 0.3s ease;
     --tran-04: all 0.4s ease;
     --tran-05: all 0.5s ease;
+
+    --box-shadow: 0 2rem 3rem #cecece
 }
 
 *,
@@ -80,9 +82,9 @@ body.dark {
 .sidebar .logo-name {
     font-size: 22px;
     font-weight: 700;
-    color: var(--text-color);
     margin-left: 16px;
     white-space: nowrap;
+    color: var(--text-color);
     transition: var(--tran-05);
 }
 
@@ -113,8 +115,8 @@ body.dark {
 }
 
 .nav-links li a.active {
-    background-color: var(--hover-color);
     border-radius: 3px;
+    background-color: var(--hover-color);
 }
 
 .nav-links li a.active::before {
@@ -124,6 +126,11 @@ body.dark {
     height: 50px;
     width: 5px;
     background-color: var(--primary-color);
+    transition: var(--tran-05);
+}
+
+.sidebar.close .nav-links li a.active::before {
+    opacity: 0;
 }
 
 .main-menu li a .icon {
@@ -203,9 +210,9 @@ body.dark {
     transform: translateY(-50%);
     height: 15px;
     width: 15px;
-    background-color: var(--sidebar-color);
     border-radius: 50%;
     transition: var(--tran-03);
+    background-color: var(--sidebar-color);
 }
 
 body.dark .switch::before {
@@ -216,11 +223,13 @@ body.dark .switch::before {
 .dashboard {
     position: relative;
     left: 250px;
-    background-color: var(--bg-color);
     height: 100vh;
     width: calc(100% - 250px);
-    padding: 10px 14px;
+    padding: 10px 40px;
+    display: flex;
+    flex-direction: row;
     transition: var(--tran-05);
+    background-color: var(--bg-color);
 }
 
 .sidebar.close~.dashboard {
@@ -248,12 +257,25 @@ body.dark .switch::before {
 
 /*==== Sidebar Toggle btn ====*/
 .dashboard .sidebar-toggle {
+    cursor: pointer;
     font-size: 30px;
     color: #000;
-    cursor: pointer;
+    transition: var(--tran-04);
 }
 
-/*=========================*/
+.dashboard .sidebar-toggle:hover {
+    transform: scale(1.3);
+    transform-origin: center;
+}
+
+/*============================*/
+.dashboard .title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-left: 30px;
+    color: var(--sidebar-color);
+}
+
 .dashboard .left-content {
     display: flex;
     align-items: center;
@@ -275,11 +297,157 @@ body.dark .switch::before {
     color: var(--sidebar-color);
 }
 
-.dashboard .title {
-    font-size: 24px;
-    font-weight: 800;
-    margin-left: 30px;
-    color: var(--sidebar-color);
+/*==== Dashboard Overview ====*/
+.dashboard .overview {
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
 }
 
-/*==== Dashboard Middle ====*/
+.overview .right-overview {
+    width: 50%;
+    margin-left: 30px;
+}
+
+/*==== Boxes ====*/
+.overview .boxes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overview .boxes .box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    width: calc(100% / 3 - 20px);
+    padding: 25px 20px;
+    background-color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    transition: var(--tran-05);
+}
+
+.overview .boxes .box:hover {
+    box-shadow: none;
+}
+
+.boxes .box-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.box-icons .icon {
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    background-color: var(--menu-text-color);
+}
+
+/* ==== Box more btn ==== */
+.box-icons .more {
+    cursor: pointer;
+    font-size: 20px;
+    align-items: flex-start;
+    transition: var(--tran-04);
+}
+
+.box-icons .more:hover {
+    transform: scale(1.4);
+    transform-origin: center;
+    box-shadow: var(--box-shadow);
+}
+
+/*========================*/
+
+.boxes .box-text {
+    margin-top: 30px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.boxes .box-text .text {
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.boxes .box-text .number {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/*==== History ====*/
+.overview .history {
+    margin-top: 30px;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    transition: var(--tran-05);
+}
+
+.overview .history:hover {
+    box-shadow: none;
+}
+
+.history div {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history .text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ==== Open history btn ==== */
+.history .open-history {
+    cursor: pointer;
+    font-size: 20px;
+    transition: var(--tran-05);
+}
+
+.history .open-history:hover {
+    transform: scale(1.4);
+    transform-origin: center;
+}
+
+/* ==== Table ==== */
+.history table {
+    margin-top: 16px;
+    width: 100%;
+    text-align: center;
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+}
+
+.history table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid #d9d9d9;
+    color: #727272;
+}
+
+.history table tbody tr:last-child td {
+    border: none;
+}
+
+/*==== Activity ====*/
+.overview .activity {
+    width: 100%;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.activity .wrapper canvas#line-chart {
+    width: 100%;
+    height: 500px;
+}
+
+.activity .text {
+    font-size: 20px;
+    font-weight: 700;
+}
