@@ -1,22 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-:root {
-    /*==== colors ====*/
-    --bg-color: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+/* --bg-color: #EDE6DB;
     --sidebar-color: #242424;
     --primary-color: #417d7a;
     --text-color: #fff;
     --menu-text-color: #808080;
     --hover-color: #3f3f3f;
     --toggle-color: #7c7c7c;
-    --divider-color: #d8d8d8;
+    --divider-color: #d8d8d8; */
+
+:root {
+    /*==== colors ====*/
+    --bg-color: #fafafa;
+    --sidebar-color: #fff;
+    --boxes-color: #fff;
+    --primary-color: #304daf;
+    --smooth-color: #5f75c3;
+    --btn-light-color: #eaedf7;
+    --btn-active-color: #eaedf7;
+    --btn-icon-color: #abb1bf;
+    --bg-icon-color: #f6f6f6;
+    --icon-color: #304daf;
+    --text-color: #303030;
+    --text-smooth-color: #858585;
+    --divider-color: #f5f5f5;
+    --success-color: #4ab219;
+    --warning-color: #d27a73;
+    --alert-color: #e98e53;
+
+    --shadow-color: #cecece;
 
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.4s ease;
     --tran-05: all 0.5s ease;
 
-    --box-shadow: 0 2rem 3rem #cecece
+    --box-shadow: 0 2rem 3rem var(--shadow-color)
 }
 
 *,
@@ -33,23 +52,29 @@ body {
     font-size: 100%;
     list-style-type: none;
     background: var(--bg-color);
+    transition: var(--tran-05);
 }
 
 body.dark {
-    --bg-color: linear-gradient(to top, #3b3b3b 0%, #1f1e1e 52%, #181818 100%);
-    --sidebar-color: #242526;
+    --bg-color: #17191b;
+    --sidebar-color: #111315;
+    --boxes-color: #26272e;
+    --btn-light-color: #304daf;
+    --btn-active-color: #37383b;
+    --bg-icon-color: #3f3f3f;
+    --icon-color: #fff;
     --text-color: #fff;
-    --menu-text-color: #808080;
-    --hover-color: #3f3f3f;
-    --toggle-color: #fff;
-    --divider-color: #4d4c4c;
+    --text-smooth-color: #a6acba;
+    --divider-color: #383944;
+
+    --box-shadow: none;
 }
 
 /*==== Sidebar ====*/
 .sidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -1;
     height: 100%;
     width: 250px;
     padding: 10px 14px;
@@ -116,7 +141,8 @@ body.dark {
 
 .nav-links li a.active {
     border-radius: 3px;
-    background-color: var(--hover-color);
+    background-color: var(--btn-active-color);
+    transition: var(--tran-05);
 }
 
 .nav-links li a.active::before {
@@ -140,7 +166,7 @@ body.dark {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--menu-text-color);
+    color: var(--btn-icon-color);
     transition: var(--tran-05);
 }
 
@@ -151,7 +177,7 @@ body.dark {
 .main-menu .link-name {
     font-size: 18px;
     font-weight: 400;
-    color: var(--menu-text-color);
+    color: var(--text-smooth-color);
     transition: var(--tran-05);
 }
 
@@ -173,6 +199,7 @@ body.dark {
 .main-menu .bottom-content {
     padding-top: 10px;
     border-top: 1px solid var(--divider-color);
+    transition: var(--tran-05);
 }
 
 /*==== Dark Mode Switch ====*/
@@ -199,7 +226,7 @@ body.dark {
     height: 22px;
     width: 40px;
     border-radius: 25px;
-    background-color: var(--toggle-color);
+    background-color: var(--btn-active-color);
 }
 
 .switch::before {
@@ -229,7 +256,6 @@ body.dark .switch::before {
     display: flex;
     flex-direction: row;
     transition: var(--tran-05);
-    background-color: var(--bg-color);
 }
 
 .sidebar.close~.dashboard {
@@ -247,7 +273,7 @@ body.dark .switch::before {
     justify-content: space-between;
     padding: 10px 14px;
     transition: var(--tran-05);
-    background-color: var(--text-color);
+    background-color: var(--boxes-color);
 }
 
 .sidebar.close~.dashboard .top {
@@ -259,8 +285,8 @@ body.dark .switch::before {
 .dashboard .sidebar-toggle {
     cursor: pointer;
     font-size: 30px;
-    color: #000;
-    transition: var(--tran-04);
+    color: var(--text-color);
+    transition: var(--tran-05);
 }
 
 .dashboard .sidebar-toggle:hover {
@@ -273,7 +299,8 @@ body.dark .switch::before {
     font-size: 24px;
     font-weight: 800;
     margin-left: 30px;
-    color: var(--sidebar-color);
+    color: var(--text-color);
+    transition: var(--tran-05);
 }
 
 .dashboard .left-content {
@@ -290,11 +317,16 @@ body.dark .switch::before {
 
 .right-content .display-date {
     font-size: 16px;
+    color: var(--text-smooth-color);
+}
+
+.right-content .notification {
+    color: var(--text-smooth-color);
 }
 
 .right-content .user {
     font-size: 50px;
-    color: var(--sidebar-color);
+    color: var(--text-color);
 }
 
 /*==== Dashboard Overview ====*/
@@ -322,7 +354,7 @@ body.dark .switch::before {
     border-radius: 4px;
     width: calc(100% / 3 - 20px);
     padding: 25px 20px;
-    background-color: var(--text-color);
+    background-color: var(--boxes-color);
     box-shadow: var(--box-shadow);
     transition: var(--tran-05);
 }
@@ -341,7 +373,9 @@ body.dark .switch::before {
     padding: 0.5rem;
     border-radius: 50%;
     font-size: 2rem;
-    background-color: var(--menu-text-color);
+    color: var(--icon-color);
+    background-color: var(--bg-icon-color);
+    transition: var(--tran-04);
 }
 
 /* ==== Box more btn ==== */
@@ -349,6 +383,7 @@ body.dark .switch::before {
     cursor: pointer;
     font-size: 20px;
     align-items: flex-start;
+    color: var(--text-smooth-color);
     transition: var(--tran-04);
 }
 
@@ -359,7 +394,6 @@ body.dark .switch::before {
 }
 
 /*========================*/
-
 .boxes .box-text {
     margin-top: 30px;
     display: flex;
@@ -370,11 +404,15 @@ body.dark .switch::before {
     white-space: nowrap;
     font-size: 16px;
     font-weight: 500;
+    color: var(--text-smooth-color);
+    transition: var(--tran-05);
 }
 
 .boxes .box-text .number {
     font-size: 24px;
     font-weight: 800;
+    color: var(--text-color);
+    transition: var(--tran-05);
 }
 
 /*==== History ====*/
@@ -382,7 +420,7 @@ body.dark .switch::before {
     margin-top: 30px;
     border-radius: 4px;
     padding: 20px;
-    background-color: var(--text-color);
+    background-color: var(--boxes-color);
     box-shadow: var(--box-shadow);
     transition: var(--tran-05);
 }
@@ -401,12 +439,15 @@ body.dark .switch::before {
 .history .text {
     font-size: 20px;
     font-weight: 700;
+    color: var(--text-color);
+    transition: var(--tran-05);
 }
 
 /* ==== Open history btn ==== */
 .history .open-history {
     cursor: pointer;
     font-size: 20px;
+    color: var(--text-smooth-color);
     transition: var(--tran-05);
 }
 
@@ -424,10 +465,16 @@ body.dark .switch::before {
     border-spacing: 0;
 }
 
+.history table thead th {
+    color: var(--text-color);
+    transition: var(--tran-05);
+}
+
 .history table tbody td {
     height: 2.8rem;
-    border-bottom: 1px solid #d9d9d9;
-    color: #727272;
+    border-bottom: 1px solid var(--divider-color);
+    color: var(--text-smooth-color);
+    transition: var(--tran-05);
 }
 
 .history table tbody tr:last-child td {
@@ -439,7 +486,18 @@ body.dark .switch::before {
     width: 100%;
     padding: 20px;
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--boxes-color);
+    box-shadow: var(--box-shadow);
+    transition: var(--tran-05);
+}
+
+.overview .activity:hover {
+    box-shadow: none;
+}
+
+.activity .text {
+    color: var(--text-color);
+    transition: var(--tran-05);
 }
 
 .activity .wrapper canvas#line-chart {
