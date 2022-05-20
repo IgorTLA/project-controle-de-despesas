@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
-/* --bg-color: #EDE6DB;
-    --sidebar-color: #242424;
-    --primary-color: #417d7a;
-    --text-color: #fff;
-    --menu-text-color: #808080;
-    --hover-color: #3f3f3f;
-    --toggle-color: #7c7c7c;
-    --divider-color: #d8d8d8; */
-
 :root {
     /*==== colors ====*/
     --bg-color: #fafafa;
@@ -28,14 +19,12 @@
     --warning-color: #d27a73;
     --alert-color: #e98e53;
 
-    --shadow-color: #cecece;
-
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.4s ease;
     --tran-05: all 0.5s ease;
 
-    --box-shadow: 0 2rem 3rem var(--shadow-color)
+    --box-shadow: #32325d40 0px 13px 27px -5px, #0000004d 0px 8px 16px -8px;
 }
 
 *,
@@ -81,6 +70,7 @@ body.dark {
     z-index: 100;
     background: var(--sidebar-color);
     transition: var(--tran-05);
+    box-shadow: var(--box-shadow);
 }
 
 .sidebar.close {
@@ -110,7 +100,7 @@ body.dark {
     margin-left: 16px;
     white-space: nowrap;
     color: var(--text-color);
-    transition: var(--tran-05);
+    transition: var(--tran-03);
 }
 
 .sidebar.close .logo-name {
@@ -141,6 +131,7 @@ body.dark {
 
 .nav-links li a.active {
     border-radius: 3px;
+    box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
     background-color: var(--btn-active-color);
     transition: var(--tran-05);
 }
@@ -178,7 +169,7 @@ body.dark {
     font-size: 18px;
     font-weight: 400;
     color: var(--text-smooth-color);
-    transition: var(--tran-05);
+    transition: var(--tran-03);
 }
 
 .sidebar.close .link-name {
@@ -199,7 +190,7 @@ body.dark {
 .main-menu .bottom-content {
     padding-top: 10px;
     border-top: 1px solid var(--divider-color);
-    transition: var(--tran-05);
+    transition: var(--tran-03);
 }
 
 /*==== Dark Mode Switch ====*/
@@ -390,7 +381,6 @@ body.dark .switch::before {
 .box-icons .more:hover {
     transform: scale(1.4);
     transform-origin: center;
-    box-shadow: var(--box-shadow);
 }
 
 /*========================*/
