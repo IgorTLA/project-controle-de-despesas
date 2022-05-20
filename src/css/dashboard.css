@@ -187,6 +187,11 @@ body.dark {
     color: var(--primary-color);
 }
 
+.nav-links li a.active:hover .icon,
+.nav-links li a.active:hover .link-name {
+    transform: none;
+}
+
 .main-menu .bottom-content {
     padding-top: 10px;
     border-top: 1px solid var(--divider-color);
@@ -236,6 +241,9 @@ body.dark {
 body.dark .switch::before {
     left: 20px;
 }
+
+/* .sidebar.close .mode-toggle .switch {
+} */
 
 /*==== Content Dashboard ====*/
 .dashboard {
@@ -346,12 +354,11 @@ body.dark .switch::before {
     width: calc(100% / 3 - 20px);
     padding: 25px 20px;
     background-color: var(--boxes-color);
-    box-shadow: var(--box-shadow);
     transition: var(--tran-05);
 }
 
 .overview .boxes .box:hover {
-    box-shadow: none;
+    box-shadow: var(--box-shadow);
 }
 
 .boxes .box-icons {
@@ -411,12 +418,11 @@ body.dark .switch::before {
     border-radius: 4px;
     padding: 20px;
     background-color: var(--boxes-color);
-    box-shadow: var(--box-shadow);
     transition: var(--tran-05);
 }
 
 .overview .history:hover {
-    box-shadow: none;
+    box-shadow: var(--box-shadow);
 }
 
 .history div {
@@ -451,7 +457,6 @@ body.dark .switch::before {
     margin-top: 16px;
     width: 100%;
     text-align: center;
-    /* border-collapse: collapse; */
     border-spacing: 0;
 }
 
@@ -477,12 +482,11 @@ body.dark .switch::before {
     padding: 20px;
     border-radius: 4px;
     background-color: var(--boxes-color);
-    box-shadow: var(--box-shadow);
     transition: var(--tran-05);
 }
 
 .overview .activity:hover {
-    box-shadow: none;
+    box-shadow: var(--box-shadow);
 }
 
 .activity .text {
